@@ -26,12 +26,6 @@ function App() {
         .then((res) => res.text())
         .then((data) => {
           setText(data);
-          // let drivedData = data.split("\n");
-          // const index = drivedData.indexOf("জন্ম তারিখ/Date of Birth") + 1;
-          // for (let i = 0; i < drivedData.length; i++) {
-          //   console.log(drivedData[i]);
-          // }
-          // setDob(drivedData[index]);
         });
     };
     setIsLoading(false);
