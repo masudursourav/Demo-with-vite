@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const ImageExtractor = ({ isLoading, setImage, handleClick }) => {
   return (
     <>

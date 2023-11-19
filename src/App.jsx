@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
-import Form from "./components/Form";
-import ImageExtractor from "./components/ImageExtractor";
+import CustomerInformation from "./Pages/CustomerInformation";
+import FindUser from "./Pages/FindUser";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   const [dob, setDob] = useState("");
   const [name, setName] = useState("");
   const [passportNo, setPassportNo] = useState("");
+  const [travelingFrom, setTravelingFrom] = useState("");
   const api =
     "https://script.google.com/macros/s/AKfycbwzC_Ia55M8TfUp1rBhJZEiBrTvduTGiWwUa5wwfrCsgRdr6h4NgM6tMvu2eKMr4dP_iA/exec";
 
@@ -88,20 +90,29 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <ImageExtractor
-        isLoading={isLoading}
-        setImage={setImage}
-        handleClick={handleClick}
-      />
-      <Form
-        dob={dob}
-        name={name}
-        passportNo={passportNo}
-        setName={setName}
-        setDob={setDob}
-        setPassportNo={setPassportNo}
-      />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <CustomerInformation
+                isLoading={isLoading}
+                setImage={setImage}
+                handleClick={handleClick}
+                dob={dob}
+                name={name}
+                passportNo={passportNo}
+                setName={setName}
+                setDob={setDob}
+                setPassportNo={setPassportNo}
+                setTravelingFrom={setTravelingFrom}
+              />
+            }
+          />
+          <Route path="/findUser" element={<FindUser />} />
+        </Routes>
+      </Router>
     </>
   );
 }

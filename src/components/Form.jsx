@@ -1,5 +1,13 @@
 /* eslint-disable react/prop-types */
-const Form = ({ dob, name, passportNo, setName, setDob, setPassportNo }) => {
+const Form = ({
+  dob,
+  name,
+  passportNo,
+  setName,
+  setDob,
+  setPassportNo,
+  setTravelingFrom,
+}) => {
   return (
     <>
       <form action="">
@@ -67,6 +75,7 @@ const Form = ({ dob, name, passportNo, setName, setDob, setPassportNo }) => {
               className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
+              onChange={(e) => setTravelingFrom(e.target.value)}
             />
           </div>
           <div className="input-group m-3">
