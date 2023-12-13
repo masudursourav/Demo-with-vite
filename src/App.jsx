@@ -12,6 +12,7 @@ function App() {
   const [name, setName] = useState("");
   const [passportNo, setPassportNo] = useState("");
   const [travelingFrom, setTravelingFrom] = useState("");
+  /* Google API Used For Img to text */
   const api =
     "https://script.google.com/macros/s/AKfycbwzC_Ia55M8TfUp1rBhJZEiBrTvduTGiWwUa5wwfrCsgRdr6h4NgM6tMvu2eKMr4dP_iA/exec";
 
@@ -43,6 +44,7 @@ function App() {
               }
             }
             for (let i = 0; i < dataOrg2.length; i++) {
+              // Get the Date of Birth from the passport image
               if (dataOrg2[i].indexOf("Date of Birth") !== -1) {
                 setDob(
                   dataOrg2[i]
@@ -54,7 +56,7 @@ function App() {
                     .replace(/^\s+|\s+$/g, "")
                 );
               }
-
+              // Get the Name from the passport image
               if (dataOrg2[i].indexOf("Given Name") !== -1) {
                 setName(
                   dataOrg2[i]
@@ -66,7 +68,7 @@ function App() {
                     .replace(/^\s+|\s+$/g, "")
                 );
               }
-
+              // Get the passport no from the passport image
               if (
                 dataOrg2[i].indexOf("Passport No") !== -1 &&
                 dataOrg2[i].indexOf("Previous Passport No") === -1
@@ -87,7 +89,7 @@ function App() {
     };
     setIsLoading(false);
   };
-
+  /* End of Img to Text function */
   return (
     <>
       <Router>
